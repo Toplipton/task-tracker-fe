@@ -1,6 +1,6 @@
 interface TaskProps {
   id: number;
-  taskName: string;
+  title: string;
   completed: boolean;
   deleteTask: (id: number) => void;
   completeTask: (id: number) => void;
@@ -8,7 +8,7 @@ interface TaskProps {
 
 export const Task = ({
   id,
-  taskName,
+  title,
   completed,
   deleteTask,
   completeTask,
@@ -21,7 +21,7 @@ export const Task = ({
         onChange={() => completeTask(id)}
       />
       <span className={`task-name ${completed ? "completed" : ""}`}>
-        {taskName}
+        {title}
       </span>
       <button className="delete-btn" onClick={() => deleteTask(id)}>
         ✕

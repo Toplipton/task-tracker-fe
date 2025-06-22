@@ -19,35 +19,21 @@ function App() {
 
   const addTask = () => {
     axios
-      .post("https://8b35-102-89-22-23.ngrok-free.app/tasks", {
+      .post("https://b89b-102-89-68-159.ngrok-free.app/tasks", {
         title: newTask,
       })
       .then(() => {
         setNewTask("");
         getAllTask();
       });
-
-    // const lastId = !todoList.length ? 0 : todoList[todoList.length - 1].id;
-
-    // const task: TaskType = {
-    //   id: lastId + 1,
-    //   title: newTask.trim(),
-    //   completed: false,
-    // };
-
-    // if (task.title !== "") {
-    //   setTodoList([...todoList, task]);
-    //   setNewTask("");
-    // }
   };
 
   const deleteTask = (id: number) => {
     axios
-      .delete("https://8b35-102-89-22-23.ngrok-free.app/tasks/" + id)
+      .delete("https://b89b-102-89-68-159.ngrok-free.app/tasks/" + id)
       .then(() => {
         getAllTask();
       });
-  
   };
 
   const completeTask = (id: number) => {
@@ -60,7 +46,7 @@ function App() {
 
   const getAllTask = () => {
     axios
-      .get("https://8b35-102-89-22-23.ngrok-free.app/tasks/all", {
+      .get("https://b89b-102-89-68-159.ngrok-free.app/tasks/all", {
         headers: {
           "ngrok-skip-browser-warning": "true",
         },
@@ -92,7 +78,7 @@ function App() {
             <Task
               key={task.id}
               id={task.id}
-              taskName={task.title}
+              title={task.title}
               completed={task.completed}
               deleteTask={deleteTask}
               completeTask={completeTask}
